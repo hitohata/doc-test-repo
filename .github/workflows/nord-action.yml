@@ -1,20 +1,18 @@
-name: node-test
-on: [push]
-defaults:
-  run:
-    working-directory: ./nodeModule
+name: Code quality
+
+on:
+  push:
+  pull_request:
+
 jobs:
-  ci:
+  quality:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout 
         uses: actions/checkout@v4
-      - name: Setup node
-        uses: actions/setup-node@v3
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v1
         with:
-          node-version: 18
-          cache: npm
-      - name: install
-        run: npm ci
-      - name: run test
-        run: npm run test
+          version: 1.2.2
+      - name: Run Biome
+        run: biome ci .
