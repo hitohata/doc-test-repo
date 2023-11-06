@@ -20,7 +20,7 @@ jobs:
       - name: Deploy static
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./index.html
+          source: ./target
           distination: |
             if [ ${{ github.action_ref_name }} == "main" ]; then
               ./prod
