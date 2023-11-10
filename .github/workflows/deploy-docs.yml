@@ -21,7 +21,7 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./target
-          distination: |
+          destination: |
             if [ ${{ github.action_ref_name }} == "main" ]; then
               ./prod
             else
