@@ -31,7 +31,7 @@ jobs:
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
           destination_dir: |
-            if [[ ${{ github.action_ref_name }} == "main" ]]; then
+            if [[ "${{ github.action_ref_name }}" == "main" ]]; then
               ./prod
             else
               ./dev
