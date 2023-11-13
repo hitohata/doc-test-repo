@@ -46,6 +46,7 @@ jobs:
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
           if: github.action_ref_name == "main"
+          destination_dir: main
       # - name: Deploy static
       #   uses: actions/jekyll-build-pages@v1
       #   with:
