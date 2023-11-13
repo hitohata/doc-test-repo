@@ -30,12 +30,8 @@ jobs:
           # You can swap them out with your own user credentials.
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
-          destination_dir: |
-            if [[ "${{ github.action_ref_name }}" == "main" ]]; then
-              ./prod
-            else
-              ./dev
-            fi
+          if: github.action_ref_name == "develop"
+          destination_dir: dev
       # - name: Deploy static
       #   uses: actions/jekyll-build-pages@v1
       #   with:
