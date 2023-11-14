@@ -19,6 +19,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        if: github.action_ref_name == 'develop'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Build output to publish to the `gh-pages` branch:
@@ -30,10 +31,10 @@ jobs:
           # You can swap them out with your own user credentials.
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
-          if: github.action_ref_name == "develop"
           destination_dir: dev
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        if: github.action_ref_name == 'main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Build output to publish to the `gh-pages` branch:
@@ -45,7 +46,6 @@ jobs:
           # You can swap them out with your own user credentials.
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
-          if: github.action_ref_name == "main"
           destination_dir: main
       # - name: Deploy static
       #   uses: actions/jekyll-build-pages@v1
